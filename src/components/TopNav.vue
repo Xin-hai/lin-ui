@@ -1,11 +1,11 @@
 <template>
   <div class="topNav">
-    <div class="logo" @click="toggleMenu">我是 logo</div>
+    <div class="logo">我是 logo</div>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
     </ul>
-    <span class="toggleAside">
+    <span class="toggleAside"  @click="toggleMenu">
       <svg class="icon" aria-hidden="true">
       <use xlink:href="#icon-toggle"></use>
       </svg>
@@ -19,7 +19,6 @@ import {inject, Ref} from 'vue';
 export default {
   setup(){
     const menuVisible = inject<Ref<boolean>>('menuVisible')
-    console.log('topnav获取的menuVisible的值为'+ menuVisible.value)
     const toggleMenu = ()=> {
       console.log(1)
       menuVisible.value = !menuVisible.value
@@ -54,15 +53,16 @@ $color-bg: pink;
     }
   }
   > .toggleAside{
+    display: none;
     position: absolute;
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
-    display: inline-block;
     width: 24px;
     height: 24px;
   }
   @media(max-width: 500px){
+    > .toggleAside{display: inline-block;}
     > .menu{display: none}
     > .logo{margin: 0 auto}
   }
