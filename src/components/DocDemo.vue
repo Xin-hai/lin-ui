@@ -1,5 +1,5 @@
 <template>
-  <div>Dialog示例</div>
+  <div>默认页面</div>
 </template>
 
 <script>
