@@ -1,0 +1,25 @@
+import { createWebHashHistory, createRouter } from 'vue-router'
+import Home from './views/Home.vue'
+import Doc from './views/Doc.vue'
+import Switch from './components/Switch.vue'
+import ButtonDemo from './components/ButtonDemo.vue'
+import Dailog from './components/Dailog.vue'
+import Tabs from './components/Tabs.vue'
+
+const history = createWebHashHistory()
+export const router = createRouter({
+    history: history,
+    routes: [
+        {path: '/', component: Home},
+        {path: '/doc', component: Doc, children: [
+                {path: 'switch',component: Switch},
+                {path: 'button',component: ButtonDemo},
+                {path: 'switch',component: Dailog},
+                {path: 'switch',component: Tabs}
+            ]}
+    ]
+})
+
+router.afterEach(()=> {
+    console.log('luyouqiehuanle ')
+})
