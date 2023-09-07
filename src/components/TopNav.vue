@@ -5,6 +5,11 @@
       <li>菜单1</li>
       <li>菜单2</li>
     </ul>
+    <span class="toggleAside">
+      <svg class="icon" aria-hidden="true">
+      <use xlink:href="#icon-toggle"></use>
+      </svg>
+    </span>
   </div>
 </template>
 
@@ -33,6 +38,8 @@ $color-bg: pink;
   z-index: 5;
   background: $color-bg;
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 16px;
   > .logo {
     max-width: 6em;
@@ -45,6 +52,19 @@ $color-bg: pink;
     > li {
       margin: 0 auto;
     }
+  }
+  > .toggleAside{
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+  }
+  @media(max-width: 500px){
+    > .menu{display: none}
+    > .logo{margin: 0 auto}
   }
 }
 </style>
