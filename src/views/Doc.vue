@@ -2,7 +2,7 @@
   <div>
     <TopNav />
     <div class="content">
-      <aside>
+      <aside v-if="menuVisible">
         <h2>组件列表</h2>
         <ol>
           <li><router-link to="/doc/switch">Switch组件</router-link></li>
@@ -18,9 +18,17 @@
 
 <script lang="ts">
 import TopNav from "../components/TopNav.vue";
+import {inject, Ref} from 'vue';
 
 export default {
-  components: {TopNav}
+  components: {TopNav},
+  setup(){
+    const menuVisible = inject<Ref<boolean>>('menuVisible')
+    console.log('doc 获取的menuVisible的值为'+ menuVisible.value)
+    return {
+      menuVisible
+    }
+  },
 }
 </script>
 
@@ -31,7 +39,7 @@ $color-bg: lightblue;
     position: fixed;
     top: 0;
     left: 0;
-    padding: 16px;
+    padding: 70px 16px 16px;
     background: $color-bg;
     > h2{
       margin-bottom: 4px;
