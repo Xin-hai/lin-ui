@@ -1,5 +1,5 @@
 <template>
-  <div>Dailog</div>
+  <div>Dialog</div>
 </template>
 
 <script>

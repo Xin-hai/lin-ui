@@ -33,7 +33,10 @@ export default {
 <style scoped lang="scss">
 $color-bg: pink;
 .topNav{
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 5;
   background: $color-bg;
   display: flex;
@@ -60,6 +63,9 @@ $color-bg: pink;
     transform: translateY(-50%);
     width: 24px;
     height: 24px;
+    svg{
+      margin-top: 4px;
+    }
   }
   @media(max-width: 500px){
     > .toggleAside{display: inline-block;}
