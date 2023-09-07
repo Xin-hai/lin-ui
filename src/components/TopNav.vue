@@ -17,7 +17,6 @@ export default {
 <style scoped lang="scss">
 $color-bg: pink;
 .topNav{
-  border: 1px solid red;
   background: $color-bg;
   display: flex;
   padding: 16px;
