@@ -22,11 +22,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  $background-normal: #bebebe;
-  $background-button: #409eff;
-  $background-span: #fff;
-  $height-button: 22px;
-  $height-span: $height-button - 4px;
+  $background-normal: #bebebe;  $background-button: #409eff;  $background-span: #fff;
+  $height-button: 22px;  $height-span: $height-button - 4px;
   button{
     position: relative;
     border: none;
@@ -34,8 +31,7 @@ export default {
     width: 2*$height-button;
     background: $background-normal;
     border-radius: $height-button / 2;
-  }
-    span {
+   > span {
       position: absolute;
       top: 2px;
       left: 2px;
@@ -43,15 +39,19 @@ export default {
       width: $height-span;
       background:$background-span;
       border-radius: $height-span / 2;
-      transition: left 300ms;
-  }
-  button.checked {
-    background: $background-button;
-  }
-  button.checked > span {
-    left: calc(100% - #{$height-span} - 2px);
-  }
-  button:focus {
-    outline: none;
+      transition: all 300ms;
+    }
+    &.checked {
+      background: $background-button;
+      > span {
+        left: calc(100% - #{$height-span} - 2px);
+      }
+    }
+    &:focus {
+      outline: none;
+    }
+    &:active{
+      > span {width: $height-span + 4px}
+    }
   }
 </style>
