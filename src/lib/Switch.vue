@@ -1,5 +1,5 @@
 <template>
-  <button :class="{checked: value}" @click="toggle"><span></span></button>
+  <button :class="{checked: value}" @click="toggle" :disabled="disabled"><span></span></button>
   <div>{{value}}</div>
 </template>
 
@@ -8,15 +8,15 @@
 export default {
   emits: ['update:value'],
   props: {
-    value: Boolean
+    value: Boolean,
+    disabled: Boolean
   },
   setup(props, context){
     const toggle = ()=> {
       context.emit('update:value', !props.value)
     }
-    return {
-      toggle
-    }
+
+    return {toggle}
   }
 }
 </script>
@@ -54,4 +54,8 @@ export default {
       > span {width: $height-span + 4px}
     }
   }
+  :disabled{
+    cursor: not-allowed;
+  }
+
 </style>

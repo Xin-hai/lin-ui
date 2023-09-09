@@ -1,7 +1,7 @@
 <template>
   <div>
     <Switch v-model:value="boolean" />
-
+      <Switch  disabled />
   </div>
 </template>
 
@@ -12,7 +12,7 @@ import {ref} from "vue";
 export default {
   components: {Switch},
   setup(){
-    const boolean = ref(true)
+    const boolean = ref(false)
     return { boolean }
   }
 }
