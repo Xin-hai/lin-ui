@@ -1,5 +1,5 @@
 <template>
-  <button :class="{checked: value}" @click="toggle" :disabled="disabled"><span></span></button>
+  <button :class="{'lin-checked': value}" @click="toggle" :disabled="disabled" class="lin-switch"><span></span></button>
   <div>{{value}}</div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
 <style scoped lang="scss">
   $background-normal: #bebebe;  $background-button: #409eff;  $background-span: #fff;
   $height-button: 22px;  $height-span: $height-button - 4px;
-  button{
+  .lin-switch{
     position: relative;
     border: none;
     height: $height-button;
@@ -41,7 +41,7 @@ export default {
       border-radius: $height-span / 2;
       transition: all 300ms;
     }
-    &.checked {
+    &.lin-checked {
       background: $background-button;
       > span {
         left: calc(100% - #{$height-span} - 2px);
