@@ -2,7 +2,7 @@
   <div>Button示例</div>
   <h1>示例1</h1>
   <div>
-    <Button>你好呀</Button>
+    <Button @click="onClick" @focus="onClick" @mouseover="onClick" size="small">你好呀</Button>
   </div>
 </template>
 
@@ -12,6 +12,12 @@ export default {
   components:{
     Button
   },
+  setup(){
+    const onClick = ()=> {
+      console.log('here')
+    }
+    return {onClick}
+  }
 }
 </script>
 
