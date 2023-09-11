@@ -1,5 +1,6 @@
 <template>
     <button class="lin-button" :class=" classes " :disabled="disabled">
+      <span class="lin-loading" v-if="loading"></span>
       <slot/>
     </button>
 </template>
@@ -22,6 +23,10 @@ export default {
       default: 'normal'
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    loading: {
       type: Boolean,
       default: false
     }
@@ -177,5 +182,23 @@ export default {
         color: #c5c8ce;
       }
     }
+    > .lin-loading {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-right: 4px;
+      border-radius: 8px;
+      border-color: $color-blue $color-blue $color-blue transparent;
+      border-style: solid;
+      border-width: 2px;
+      animation: lin-spin 1s infinite linear;
+    }
   }
+
+  @keyframes lin-spin {
+    0%{transform: rotate(0deg)}
+    100%{transform: rotate(360deg)}
+  }
+
+
 </style>
