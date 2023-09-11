@@ -1,5 +1,5 @@
 <template>
-    <button class="lin-button" :class=" classes ">
+    <button class="lin-button" :class=" classes " :disabled="disabled">
       <slot/>
     </button>
 </template>
@@ -20,6 +20,10 @@ export default {
     level: {
       type: String,
       default: 'normal'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props){
@@ -152,6 +156,25 @@ export default {
         &:focus {
           color: darken($color-red, 10%);
         }
+      }
+    }
+
+    &.lin-theme-button {
+      &[disabled]{
+        cursor: not-allowed;
+        color: #c5c8ce;
+        background-color: #f7f7f7;
+        border-color: #dcdee2;
+        &:hover{
+          background-color: #f7f7f7;
+        }
+      }
+    }
+    &.lin-theme-link,
+    &.lin-theme-text {
+      &[disabled] {
+        cursor: not-allowed;
+        color: #c5c8ce;
       }
     }
   }
