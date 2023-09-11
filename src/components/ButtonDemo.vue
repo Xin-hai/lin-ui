@@ -1,5 +1,4 @@
 <template>
-
   <h1>示例1</h1>
   <div>
     <Button>你好</Button>
@@ -8,6 +7,14 @@
     <Button theme="text">你好</Button>
   </div>
   <br><br>
+  <h1>示例6</h1>
+  <div>
+    <Button color="info">info</Button>
+    <Button color="success">success</Button>
+    <Button color="warning">warning</Button>
+    <Button color="error">error</Button>
+  </div>
+
   <h1>示例2</h1>
   <div>
     <Button theme="button" size="big">button</Button>
@@ -54,6 +61,8 @@
     <Button :loading="true">加载中</Button>
     <Button >加载完毕</Button>
   </div>
+
+
 </template>
 
 <script lang="ts">

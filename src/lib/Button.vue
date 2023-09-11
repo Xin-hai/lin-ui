@@ -29,15 +29,19 @@ export default {
     loading: {
       type: Boolean,
       default: false
+    },
+    color: {
+      type: String
     }
   },
   setup(props){
-    const {theme, size, level} = props
+    const {theme, size, level, color} = props
     const classes = computed(()=>{
       return {
           [`lin-theme-${theme}`]: theme,
           [`lin-size-${size}`]: size,
-          [`lin-level-${level}`]: level
+          [`lin-level-${level}`]: level,
+          [`lin-color-${color}`]: color
       }
     })
 
@@ -192,6 +196,29 @@ export default {
       border-style: solid;
       border-width: 2px;
       animation: lin-spin 1s infinite linear;
+    }
+
+    &.lin-theme-button {
+      &.lin-color-info {
+        color: #fff;
+        background-color: #2db7f5;
+        border-color: #2db7f5;
+      }
+      &.lin-color-success {
+        color: #fff;
+        background-color: #19be6b;
+        border-color: #19be6b;
+      }
+      &.lin-color-warning {
+        color: #fff;
+        background-color: #f90;
+        border-color: #f90;
+      }
+      &.lin-color-error {
+        color: #fff;
+        background-color: #ed4014;
+        border-color: #ed4014;
+      }
     }
   }
 
