@@ -59,7 +59,7 @@ $color-bg: lightblue;
     > main {
       flex-grow: 1;
       padding: 16px;
-      background: lightgreen;
+      background: white;
       margin-top: -6px;
     }
   }

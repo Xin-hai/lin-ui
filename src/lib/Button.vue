@@ -1,20 +1,38 @@
 <template>
-    <button class="lin-button" :class=" `lin-theme-${theme}` ">
+    <button class="lin-button" :class=" classes ">
       <slot/>
     </button>
 </template>
 
 <script>
+import {computed} from "vue";
+
 export default {
   props: {
     theme: {
       type: String,
       default: 'button'
+    },
+    size: {
+      type: String,
+      default: 'normal'
+    },
+    level: {
+      type: String,
+      default: 'normal'
     }
   },
-  setup(){
+  setup(props){
+    const {theme, size, level} = props
+    const classes = computed(()=>{
+      return {
+          [`lin-theme-${theme}`]: theme,
+          [`lin-size-${size}`]: size,
+          [`lin-level-${level}`]: level
+      }
+    })
 
-    return {}
+    return {classes}
   }
 }
 </script>
@@ -27,6 +45,8 @@ export default {
     $color-font: #333;
     $color-blue: #40a9ff;
     $border-radius: 4px;
+    $font-size: 12px;
+    $color-red: #ed4014;
 
     display: inline-flex;
     justify-content: center;
@@ -48,6 +68,91 @@ export default {
       color: $color-blue;
       border-color: $color-blue;
       outline: none;
+    }
+    &.lin-theme-link {
+      color: $color-blue;
+      border-color: transparent;
+      box-shadow: none;
+      &:hover,&:focus{
+        color: lighten($color-blue, 10%);
+      }
+    }
+    &.lin-theme-text {
+      color: inherit;
+      border-color: transparent;
+      box-shadow: none;
+      &:hover,&:focus {
+        background: darken(#fff, 6%);
+      }
+    }
+    &.lin-size-big{
+      font-size: $font-size * 2;
+      height: 48px;
+      padding: 0 16px;
+    }
+
+    &.lin-size-normal {}
+
+    &.lin-size-small {
+      font-size: $font-size / 2;
+      height: 20px;
+      padding: 0 4px;
+    }
+    &.lin-theme-button {
+      &.lin-level-main {
+        background: $color-blue;
+        color: #fff;
+        border-color: $color-blue;
+        &:hover,
+        &:focus {
+          background: darken($color-blue, 10%);
+          border-color: darken($color-blue, 10%);
+        }
+      }
+
+      &.lin-level-normal {}
+
+
+      &.lin-level-danger {
+        background: $color-red;
+        border-color: $color-red;
+        color: #fff;
+        &:hover,
+        &:focus {
+          background: darken($color-red, 10%);
+          border-color: darken($color-red, 10%);
+        }
+      }
+    }
+
+    &.lin-theme-link {
+      &.lin-level-danger {
+        color: $color-red;
+        &:focus {
+          color: darken($color-red, 10%)
+        }
+      }
+    }
+
+    &.lin-theme-text {
+      &.lin-level-main {
+        color: $color-blue;
+        &:hover,
+        &:focus {
+          color: darken($color-blue, 10%);
+        }
+      }
+
+      &.lin-level-normal {}
+
+
+      &.lin-level-danger {
+        color: $color-red;
+        &:hover,
+        &:focus {
+          color: darken($color-red, 10%);
+        }
+      }
     }
   }
 </style>
