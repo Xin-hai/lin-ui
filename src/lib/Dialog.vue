@@ -32,10 +32,10 @@ export default {
       type: Boolean,
       default: false
     },
-    f1: {
+    ok: {
       type: Function
     },
-    f2: {
+    cancel: {
       type: Function
     },
   },
@@ -49,12 +49,12 @@ export default {
       }
     }
     const runOk = ()=> {
-      if(props.f1?.() !== false){
+      if(props.ok?.() !== false){
         close()
       }
     }
     const runCancel = ()=> {
-      if(props.f2?.() !== false){
+      if(props.cancel?.() !== false){
         close()
       }
     }
