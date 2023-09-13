@@ -1,19 +1,20 @@
 <template>
   <template v-if="visible">
-    <div class="lin-dialog-overlay" @click="onCloseOverlay"></div>
-    <div class="lin-dialog-wrapper">
-      <div class="lin-dialog">
-        <header>标题 <span class="lin-dialog-close" @click="close"></span></header>
-        <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
-        </main>
-        <footer>
-          <Button @click="runOk">OK</Button>
-          <Button @click="runCancel">Cancel</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="lin-dialog-overlay" @click="onCloseOverlay"></div>
+      <div class="lin-dialog-wrapper">
+        <div class="lin-dialog">
+          <header><slot name="title"/> <span class="lin-dialog-close" @click="close"></span></header>
+          <main>
+            <slot name="content" />
+          </main>
+          <footer>
+            <Button @click="runOk" color="success">OK</Button>
+            <Button @click="runCancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 
@@ -36,7 +37,7 @@ export default {
     },
     f2: {
       type: Function
-    }
+    },
   },
   setup(props, context){
     const close = ()=> {

@@ -1,7 +1,14 @@
 <template>
     <h1>示例一</h1>
-   <Dialog v-model:visible="visible" :close-overlay="true" :f1="f1" :f2="f2"/>
-
+  <Dialog v-model:visible="visible" :close-overlay="true" :f1="f1" :f2="f2" >
+    <template v-slot:title>
+      <div>我是标题</div>
+    </template>
+    <template v-slot:content>
+      <div>我是内容一</div>
+      <div>我是内容二</div>
+    </template>
+  </Dialog>
    <Button @click="toggle">点击显示</Button>
 </template>
 
