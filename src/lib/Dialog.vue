@@ -1,6 +1,6 @@
 <template>
   <template v-if="visible">
-    <div class="lin-dialog-overlay"></div>
+    <div class="lin-dialog-overlay" @click="onCloseOverlay"></div>
     <div class="lin-dialog-wrapper">
       <div class="lin-dialog">
         <header>标题 <span class="lin-dialog-close" @click="close"></span></header>
@@ -9,8 +9,8 @@
           <p>第二行字</p>
         </main>
         <footer>
-          <Button>OK</Button>
-          <Button>取消</Button>
+          <Button @click="runOk">OK</Button>
+          <Button @click="runCancel">Cancel</Button>
         </footer>
       </div>
     </div>
@@ -26,13 +26,38 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    },
+    closeOverlay: {
+      type: Boolean,
+      default: false
+    },
+    f1: {
+      type: Function
+    },
+    f2: {
+      type: Function
     }
   },
   setup(props, context){
     const close = ()=> {
       context.emit('update:visible',false)
     }
-    return {close}
+    const onCloseOverlay = ()=> {
+      if(props.closeOverlay){
+        close()
+      }
+    }
+    const runOk = ()=> {
+      if(props.f1?.() !== false){
+        close()
+      }
+    }
+    const runCancel = ()=> {
+      if(props.f2?.() !== false){
+        close()
+      }
+    }
+    return {close, onCloseOverlay,runOk,runCancel}
   }
 }
 </script>

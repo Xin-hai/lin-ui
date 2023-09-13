@@ -1,6 +1,6 @@
 <template>
     <h1>示例一</h1>
-   <Dialog :visible="visible" @update:visible="visible=$event" />
+   <Dialog v-model:visible="visible" :close-overlay="true" :f1="f1" :f2="f2"/>
 
    <Button @click="toggle">点击显示</Button>
 </template>
@@ -16,7 +16,14 @@ export default {
     function toggle(){
       visible.value = !visible.value
     }
-    return {visible,toggle}
+    const f1 = ()=> {
+      console.log('执行了f1')
+      return false
+    }
+    const f2 = ()=> {
+      console.log('执行了f2')
+    }
+    return {visible,toggle,f1,f2}
   }
 }
 </script>
