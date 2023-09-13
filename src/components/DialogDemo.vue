@@ -1,6 +1,7 @@
 <template>
     <h1>示例一</h1>
-   <Dialog :visible="visible"/>
+   <Dialog :visible="visible" @update:visible="visible=$event" />
+
    <Button @click="toggle">点击显示</Button>
 </template>
 

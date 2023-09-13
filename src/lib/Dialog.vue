@@ -3,7 +3,7 @@
     <div class="lin-dialog-overlay"></div>
     <div class="lin-dialog-wrapper">
       <div class="lin-dialog">
-        <header>标题 <span class="lin-dialog-close"></span></header>
+        <header>标题 <span class="lin-dialog-close" @click="close"></span></header>
         <main>
           <p>第一行字</p>
           <p>第二行字</p>
@@ -28,8 +28,11 @@ export default {
       default: false
     }
   },
-  setup(){
-    return {}
+  setup(props, context){
+    const close = ()=> {
+      context.emit('update:visible',false)
+    }
+    return {close}
   }
 }
 </script>
