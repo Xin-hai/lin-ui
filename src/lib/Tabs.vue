@@ -4,7 +4,7 @@
       <div v-for="(title,index) in titles" :key="index" v-text="title"  @click="select(title)"
            :ref="el => {if(el) navItems[index]=el}"
            class="lin-tabs-nav-item" :class="{'selected': selected===title}"></div>
-      <div class="lin-tabs-nav-line"></div>
+      <div class="lin-tabs-nav-line" ref="line"></div>
     </div>
    <div class="lin-tabs-content">
      <component v-for="(item,index) in defaults" :is="item" :key="index"
@@ -24,9 +24,13 @@ export default {
     }
   },
   setup(props, context) {
-    const navItems = ref([])
+    const navItems = ref<HTMLDivElement[]>([])
+    const line = ref<HTMLDivElement>(null)
     onMounted(()=> {
-      // console.log({...navItems.value})
+      const divs = navItems.value
+      const result = divs.find(div=> div.classList.contains('selected'))
+      const {width} = result.getBoundingClientRect()
+      line.value.style.width = width + 'px'
     })
     const defaults = context.slots.default()
     defaults.forEach((tag)=> {
@@ -43,7 +47,8 @@ export default {
       defaults,
       titles,
       select,
-      navItems
+      navItems,
+      line
     }
   }
 }
