@@ -37,7 +37,6 @@ $color-bg: pink;
   left: 0;
   width: 100%;
   z-index: 5;
-  background: $color-bg;
   display: flex;
   justify-content: center;
   align-items: center;

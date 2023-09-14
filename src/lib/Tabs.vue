@@ -98,7 +98,7 @@ $border-color: #d9d9d9;
     }
     &-content {
       padding:  8px 0;
-      ::v-deep &-item {
+      ::v-deep(&-item) {
         display: none;
         &.selected {
           display: block;

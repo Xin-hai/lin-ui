@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="topNavAndBanner">
     <TopNav />
     <div class="banner">
       <h1>lin UI</h1>
@@ -31,7 +31,6 @@ $color-bg-a: #fff;
     justify-content: center;
     align-items: center;
     padding: 100px 0;
-    background: $color-bg;
     .actions {
       padding: 8px 0;
       a{
@@ -47,4 +46,7 @@ $color-bg-a: #fff;
       }
     }
   }
+.topNavAndBanner {
+  background: linear-gradient(145deg, rgba(227,255,253,1) 0%, rgba(183,233,230,1) 100%);
+}
 </style>
