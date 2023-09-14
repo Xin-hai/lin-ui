@@ -2,7 +2,7 @@
   <div class="lin-tabs">
     <div class="lin-tabs-nav" ref="nav">
       <div v-for="(title,index) in titles" :key="index" v-text="title"  @click="select(title)"
-           :ref="el => {if(el) navItems[index]=el}"
+           :ref="el => {if(title===selected) selectedItem=el}"
            class="lin-tabs-nav-item" :class="{'selected': selected===title}"></div>
       <div class="lin-tabs-nav-line" ref="line"></div>
     </div>
@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import Tab from "./Tab.vue";
-import {onMounted, onUpdated, ref, watchEffect} from 'vue';
+import {onMounted,  ref, watchEffect} from 'vue';
 export default {
   name: 'Tabs',
   props: {
@@ -24,20 +24,21 @@ export default {
     }
   },
   setup(props, context) {
-    const navItems = ref<HTMLDivElement[]>([])
+    // const navItems = ref<HTMLDivElement[]>([])
+    const selectedItem = ref<HTMLDivElement>(null)
     const line = ref<HTMLDivElement>(null)
     const nav = ref<HTMLDivElement>(null)
     const x = ()=> {
-      const divs = navItems.value
-      const result = divs.find(div=> div.classList.contains('selected'))
-      const {width,left:left2} = result.getBoundingClientRect()
-      line.value.style.width = width + 'px'
+      const {width,left:left2} = selectedItem.value.getBoundingClientRect()
       const {left:left1} = nav.value.getBoundingClientRect()
       const left = left2 - left1
+      line.value.style.width = width + 'px'
       line.value.style.left = left + 'px'
     }
-    onMounted(x)
-    onUpdated(x)
+    onMounted(()=> {
+      watchEffect(x)
+    })
+    // watchEffect(x)
     const defaults = context.slots.default()
     defaults.forEach((tag)=> {
     // @ts-expect-error
@@ -53,7 +54,7 @@ export default {
       defaults,
       titles,
       select,
-      navItems,
+      selectedItem,
       line,
       nav
     }
