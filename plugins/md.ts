@@ -10,9 +10,9 @@ const mdToJs = str => {
 
 export function md() {
     return {
-        configureServer: [ // 用于开发
+        configureServer: [ // 用于开发, md变为js
             async ({ app }) => {
-                app.use(async (ctx, next) => { // koa
+                app.use(async (ctx, next) => {
                     if (ctx.path.endsWith('.md')) {
                         ctx.type = 'js'
                         const filePath = path.join(process.cwd(), ctx.path)
