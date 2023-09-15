@@ -3,6 +3,12 @@
     <TopNav class="nav" :toggleMenuVisible="true"/>
     <div class="content">
       <aside v-if="menuVisible">
+        <h2>文档</h2>
+        <ol>
+          <li><router-link to="/doc/intro">介绍</router-link></li>
+          <li><router-link to="/doc/get-started">开始</router-link></li>
+          <li><router-link to="/doc/install">安装</router-link></li>
+        </ol>
         <h2>组件列表</h2>
         <ol>
           <li><router-link to="/doc/switch">Switch组件</router-link></li>
@@ -35,6 +41,7 @@ export default {
 
 <style scoped lang="scss">
 $color-bg: lightblue;
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -69,14 +76,22 @@ $color-bg: lightblue;
     position: fixed;
     top: 0;
     left: 0;
-    padding: 70px 16px 16px;
+    padding: 70px 0 16px 0;
     height: 100%;
     > h2{
       margin-bottom: 4px;
+      padding: 0 16px;
     }
     > ol {
       li{
-        padding: 4px 0;
+        > a{
+          padding: 4px 16px;
+          display: block;
+        }
+        .router-link-active {
+          background: #fff;
+          text-decoration: none;
+        }
       }
     }
    main {
