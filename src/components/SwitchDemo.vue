@@ -10,7 +10,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre v-text="Switch1Demo.__sourceCode"></pre>
+        <pre v-html="Prism.highlight(Switch1Demo.__sourceCode, Prism.languages.html, 'html')" class="language-css"></pre>
       </div>
     </div>
 
@@ -23,7 +23,7 @@
           <Button>查看代码</Button>
         </div>
         <div class="demo-code">
-          <pre v-text="Switch2Demo.__sourceCode"></pre>
+          <pre v-html="Prism.highlight(Switch2Demo.__sourceCode, Prism.languages.html, 'html')" class="language-css"></pre>
         </div>
       </div>
   </div>
@@ -31,16 +31,20 @@
 
 <script>
 import Switch from "../lib/Switch.vue";
-import {ref} from "vue";
+import {reactive,ref} from "vue";
 import Button from "../lib/Button.vue";
-import Switch1Demo from './Switch1.demo.vue'
-import Switch2Demo from './Switch2.demo.vue'
+import Switch1Demo from './Switch1.demo.vue';
+import Switch2Demo from './Switch2.demo.vue';
+import  'prismjs';
+import 'prismjs/themes/prism.css';
+
+const Prism = reactive(window.Prism)
 
 export default {
   components: { Switch,Button},
   setup(){
     const boolean = ref(false)
-    return { boolean,Switch1Demo,Switch2Demo }
+    return { boolean,Switch1Demo,Switch2Demo, Prism,reactive}
   }
 }
 </script>
