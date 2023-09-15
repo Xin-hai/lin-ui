@@ -10,7 +10,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>&lt;Switch v-model:value="boolean" disabled/&gt;</pre>
+        <pre v-text="Switch1Demo.__sourceCode"></pre>
       </div>
     </div>
 
@@ -23,7 +23,7 @@
           <Button>查看代码</Button>
         </div>
         <div class="demo-code">
-          <pre>&lt;Switch disabled/&gt;</pre>
+          <pre v-text="Switch2Demo.__sourceCode"></pre>
         </div>
       </div>
   </div>
@@ -40,7 +40,7 @@ export default {
   components: {Switch2Demo, Switch,Button,Switch1Demo},
   setup(){
     const boolean = ref(false)
-    return { boolean }
+    return { boolean,Switch1Demo,Switch2Demo }
   }
 }
 </script>
