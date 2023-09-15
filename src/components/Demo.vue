@@ -8,7 +8,7 @@
       <Button>查看代码</Button>
     </div>
     <div class="demo-code">
-      <pre v-html="Prism.highlight(component.__sourceCode, Prism.languages.html, 'html')"
+      <pre v-html="html"
            class="language-html"></pre>
     </div>
   </div>
@@ -18,7 +18,7 @@
 import Button from "../lib/Button.vue";
 import  'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
-import {reactive} from "vue";
+import {computed, reactive} from "vue";
 
 
 
@@ -27,9 +27,12 @@ export default {
     component: Object
   },
   components: {Button},
-  setup(){
+  setup(props){
     const Prism = reactive(window.Prism)
-    return {Prism}
+    const html = computed(()=> {
+      return Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'html')
+    })
+    return {Prism, html}
   }
 }
 </script>
