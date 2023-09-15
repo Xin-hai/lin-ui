@@ -30,7 +30,8 @@ export default {
     height: $height-button;
     width: 2*$height-button;
     background: $background-normal;
-    border-radius: $height-button / 2;
+    //border-radius: $height-button / 2;
+    border-radius: calc($height-button / 2);
    > span {
       position: absolute;
       top: 2px;
@@ -38,7 +39,8 @@ export default {
       height: $height-span;
       width: $height-span;
       background:$background-span;
-      border-radius: $height-span / 2;
+      //border-radius: $height-span / 2;
+      border-radius: calc($height-span / 2);
       transition: all 300ms;
     }
     &.lin-checked {

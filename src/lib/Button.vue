@@ -107,7 +107,8 @@ export default {
     &.lin-size-normal {}
 
     &.lin-size-small {
-      font-size: $font-size / 2;
+      //font-size: $font-size / 2;
+      font-size: calc($font-size / 2);
       height: 20px;
       padding: 0 4px;
     }
