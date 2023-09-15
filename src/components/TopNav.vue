@@ -1,6 +1,10 @@
 <template>
   <div class="topNav">
-    <div class="logo">我是 logo</div>
+    <div class="logo">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-huanlin"></use>
+      </svg>
+    </div>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
@@ -31,7 +35,9 @@ export default {
 
 <style scoped lang="scss">
 $color-bg: pink;
+$color: #329894;
 .topNav{
+  color: $color;
   position: fixed;
   top: 0;
   left: 0;
@@ -44,6 +50,10 @@ $color-bg: pink;
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    >svg {
+      width: 32px;
+      height: 32px;
+    }
   }
   >.menu{
     display: flex;
