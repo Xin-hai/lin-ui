@@ -1,30 +1,35 @@
 <template>
-  <div>
-    <h1>Switch 组件示例</h1>
-    <div class="demo">
-      <Demo :component="Switch1Demo"></Demo>
-      <Demo :component="Switch2Demo"></Demo>
+  <div class="demo">
+    <h2>{{component.__sourceCodeTitle}}</h2>
+    <div class="demo-component">
+      <component :is="component"></component>
+    </div>
+    <div class="demo-actions">
+      <Button>查看代码</Button>
+    </div>
+    <div class="demo-code">
+      <pre v-html="Prism.highlight(component.__sourceCode, Prism.languages.html, 'html')"
+           class="language-html"></pre>
     </div>
   </div>
 </template>
 
 <script>
-import Switch from "../lib/Switch.vue";
-import {reactive, ref} from "vue";
 import Button from "../lib/Button.vue";
-import Switch1Demo from './Switch1.demo.vue';
-import Switch2Demo from './Switch2.demo.vue';
-import 'prismjs';
+import  'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
-import Demo from "./Demo.vue";
+import {reactive} from "vue";
 
-const Prism = reactive(window.Prism)
+
 
 export default {
-  components: {Switch, Button, Demo},
-  setup() {
-    const boolean = ref(false)
-    return {boolean, Switch1Demo, Switch2Demo, Prism, reactive}
+  props: {
+    component: Object
+  },
+  components: {Button},
+  setup(){
+    const Prism = reactive(window.Prism)
+    return {Prism}
   }
 }
 </script>
@@ -35,22 +40,18 @@ $border-color: #d9d9d9;
 .demo {
   border: 1px solid $border-color;
   margin: 16px 0 32px;
-
   > h2 {
     font-size: 20px;
     padding: 8px 16px;
     border-bottom: 1px solid $border-color;
   }
-
   &-component {
     padding: 16px;
   }
-
   &-actions {
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
   }
-
   &-code {
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
