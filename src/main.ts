@@ -1,9 +1,10 @@
-import './lib/lin.scss'
-import './index.scss'
-import { createApp } from 'vue'
-import App from './App.vue'
+import './lib/lin.scss';
+import './index.scss';
+import { createApp } from 'vue';
+import App from './App.vue';
 import {router} from './router';
-import './assets/svgs'
+import './assets/svgs';
+import 'github-markdown-css';
 
 
 
