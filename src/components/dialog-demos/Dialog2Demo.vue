@@ -1,4 +1,4 @@
-<demo>showDialog调用</demo>
+<demo>showDialog 调用</demo>
 
 <template>
 <div>

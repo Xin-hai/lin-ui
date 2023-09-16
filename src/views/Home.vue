@@ -23,20 +23,21 @@
        </li>
        <li>
          <svg class="icon" aria-hidden="true">
+           <use xlink:href="#icon-UI"></use>
+         </svg>
+         <h3>源码简洁易读</h3>
+         <p>组件的源码都极其简洁、易懂</p>
+       </li>
+       <li>
+         <svg class="icon" aria-hidden="true">
            <use xlink:href="#icon-ts"></use>
          </svg>
          <h3>基于 TypeScript </h3>
          <p>源码基本采用 TypeScript 书写</p>
        </li>
-       <li>
-         <svg class="icon" aria-hidden="true">
-           <use xlink:href="#icon-UI"></use>
-         </svg>
-         <h3>源码易读</h3>
-         <p>组件的源码都极其简洁，简洁易懂</p>
-       </li>
      </ul>
     </div>
+    <footer>MIT Licensed | Copyright © 2023-present Xin Hai</footer>
   </div>
 </template>
 
@@ -115,7 +116,7 @@ $color: #329894;
     align-items: center;
     padding: 100px 0;
     .actions {
-      padding: 40px 0;
+      padding: 20px 0;
       a{
         color: #fff;
         background: $color-bg-a;
@@ -128,6 +129,10 @@ $color: #329894;
         }
       }
     }
+  }
+  footer {
+    text-align: center;
+    margin-bottom: 10px;
   }
 
 </style>

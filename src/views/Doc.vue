@@ -9,12 +9,12 @@
           <li><router-link to="/doc/install">安装</router-link></li>
           <li><router-link to="/doc/get-started">开始</router-link></li>
         </ol>
-        <h2>组件列表</h2>
+        <h2 class="component-list">组件</h2>
         <ol>
-          <li><router-link to="/doc/switch">Switch组件</router-link></li>
-          <li><router-link to="/doc/button">Button组件</router-link></li>
-          <li><router-link to="/doc/dialog">Dialog组件</router-link></li>
-          <li><router-link to="/doc/tabs">Tabs组件</router-link></li>
+          <li><router-link to="/doc/button">Button</router-link></li>
+          <li><router-link to="/doc/switch">Switch</router-link></li>
+          <li><router-link to="/doc/dialog">Dialog</router-link></li>
+          <li><router-link to="/doc/tabs">Tabs</router-link></li>
         </ol>
       </aside>
       <main>
@@ -82,12 +82,16 @@ $color-bg: lightblue;
     > h2{
       margin-bottom: 4px;
       padding: 0 16px;
+      border-bottom: 1px solid lighten(#add8e6, 8%);
     }
     > ol {
       li{
         > a{
           padding: 4px 16px;
           display: block;
+        }
+        >a:hover{
+          text-decoration: none;
         }
         .router-link-active {
           background: #fff;
@@ -98,6 +102,10 @@ $color-bg: lightblue;
    main {
      overflow: auto;
    }
+  }
+
+  .component-list {
+    margin-top: 20px;
   }
 
 </style>
