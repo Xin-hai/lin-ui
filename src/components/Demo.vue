@@ -5,9 +5,9 @@
       <component :is="component"></component>
     </div>
     <div class="demo-actions">
-      <Button>查看代码</Button>
+      <Button color="info" @click="codeVisible=!codeVisible">查看代码</Button>
     </div>
-    <div class="demo-code">
+    <div class="demo-code" v-if="codeVisible">
       <pre v-html="html"
            class="language-html"></pre>
     </div>
@@ -18,7 +18,7 @@
 import Button from "../lib/Button.vue";
 import  'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
-import {computed, reactive} from "vue";
+import {computed, reactive, ref} from "vue";
 
 
 
@@ -29,10 +29,11 @@ export default {
   components: {Button},
   setup(props){
     const Prism = reactive(window.Prism)
+    const codeVisible = ref(false)
     const html = computed(()=> {
       return Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'html')
     })
-    return {Prism, html}
+    return {Prism, html,codeVisible}
   }
 }
 </script>
