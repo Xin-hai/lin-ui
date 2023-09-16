@@ -24,7 +24,6 @@ export default {
     }
   },
   setup(props, context) {
-    // const navItems = ref<HTMLDivElement[]>([])
     const selectedItem = ref(null)
     const line = ref(null)
     const nav = ref(null)
@@ -35,9 +34,8 @@ export default {
         const left = left2 - left1
         line.value.style.width = width + 'px'
         line.value.style.left = left + 'px'
-      })
+      },{flush:'post'})
     })
-    // watchEffect(x)
     const defaults = context.slots.default()
     defaults.forEach((tag)=> {
     // @ts-expect-error
@@ -106,8 +104,5 @@ $border-color: #d9d9d9;
 .lin-tabs-content :deep(.lin-tabs-content-item.selected) {
   display: block;
 }
-
 //::v-deep 已废弃
-
-
 </style>
