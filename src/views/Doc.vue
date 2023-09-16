@@ -78,6 +78,7 @@ $color-bg: lightblue;
     left: 0;
     padding: 70px 0 16px 0;
     height: 100%;
+    z-index: 10;
     > h2{
       margin-bottom: 4px;
       padding: 0 16px;
