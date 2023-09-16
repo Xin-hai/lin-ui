@@ -5,6 +5,7 @@
       <div class="banner">
         <h1>lin UI</h1>
         <h2>A powerful UI framework</h2>
+        <h2>一个厉害的UI框架</h2>
         <p class="actions">
           <a href="https://github.com/Xin-hai/lin-ui/tree/main" target="_blank">GitHub</a>
           <router-link to="/doc">开始</router-link>
@@ -17,22 +18,22 @@
          <svg class="icon" aria-hidden="true">
            <use xlink:href="#icon-vue3"></use>
          </svg>
-         <h3>基于Vue3</h3>
-         <p>骄傲地使用了 Vue 3 Composition API</p>
+         <h3>基于 Vue3</h3>
+         <p>自信地使用 Vue 3 组合式 API</p>
        </li>
        <li>
          <svg class="icon" aria-hidden="true">
            <use xlink:href="#icon-ts"></use>
          </svg>
          <h3>基于 TypeScript </h3>
-         <p>源代码采用 TypeScript 书写</p>
+         <p>源码基本采用 TypeScript 书写</p>
        </li>
        <li>
          <svg class="icon" aria-hidden="true">
            <use xlink:href="#icon-UI"></use>
          </svg>
-         <h3>代码易读</h3>
-         <p>每个组件的源代码都极其简洁，展现思路</p>
+         <h3>源码易读</h3>
+         <p>组件的源码都极其简洁，简洁易懂</p>
        </li>
      </ul>
     </div>
@@ -53,8 +54,6 @@ $color-bg-a: #02bcb0;
 $color: #329894;
 .topNavAndBanner {
   background: linear-gradient(145deg, rgba(227,255,253,1) 0%, rgba(183,233,230,1) 100%);
-  //border-bottom-left-radius: 50% 40px;
-  //border-bottom-right-radius: 50% 40px;
   clip-path: ellipse(80% 60% at 50% 40%);
 }
 .features  {
