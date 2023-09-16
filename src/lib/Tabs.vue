@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script >
 import Tab from "./Tab.vue";
 import {onMounted,  ref, watchEffect} from 'vue';
 export default {
@@ -25,18 +25,17 @@ export default {
   },
   setup(props, context) {
     // const navItems = ref<HTMLDivElement[]>([])
-    const selectedItem = ref<HTMLDivElement>(null)
-    const line = ref<HTMLDivElement>(null)
-    const nav = ref<HTMLDivElement>(null)
-    const x = ()=> {
-      const {width,left:left2} = selectedItem.value.getBoundingClientRect()
-      const {left:left1} = nav.value.getBoundingClientRect()
-      const left = left2 - left1
-      line.value.style.width = width + 'px'
-      line.value.style.left = left + 'px'
-    }
+    const selectedItem = ref(null)
+    const line = ref(null)
+    const nav = ref(null)
     onMounted(()=> {
-      watchEffect(x)
+      watchEffect(()=>{
+        const {width,left:left2} = selectedItem.value.getBoundingClientRect()
+        const {left:left1} = nav.value.getBoundingClientRect()
+        const left = left2 - left1
+        line.value.style.width = width + 'px'
+        line.value.style.left = left + 'px'
+      })
     })
     // watchEffect(x)
     const defaults = context.slots.default()
@@ -47,7 +46,7 @@ export default {
       }
     })
     const titles = defaults.map((tag)=>tag.props.title)
-    const select = (title: string)=> {
+    const select = (title)=> {
       context.emit('update:selected',title)
     }
     return {
@@ -97,16 +96,18 @@ $border-color: #d9d9d9;
       }
     }
     &-content {
-      padding:  8px 0;
-      ::v-deep(&-item) {
-        display: none;
-        &.selected {
-          display: block;
-        }
-      }
+      padding: 8px 0;
     }
   }
 
+.lin-tabs-content :deep(.lin-tabs-content-item) {
+  display: none;
+}
+.lin-tabs-content :deep(.lin-tabs-content-item.selected) {
+  display: block;
+}
+
+//::v-deep 已废弃
 
 
 </style>

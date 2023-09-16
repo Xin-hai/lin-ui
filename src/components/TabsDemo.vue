@@ -1,23 +1,18 @@
 <template>
   <div>
-    <Tabs v-model:selected="currentTitle">
-      <Tab title="导航一">内容一</Tab>
-      <Tab title="导航二">内容二ssssss</Tab>
-    </Tabs>
+    <Demo :component="Tabs1Demo"></Demo>
   </div>
 </template>
 
 <script lang="ts">
-import Tab from '../lib/Tab.vue';
-import Tabs from '../lib/Tabs.vue'
-import {ref} from 'vue';
+
+import Demo from './Demo.vue';
+import Tabs1Demo from './Tabs1Demo.vue';
+
 export default {
-  components: {Tabs, Tab},
+  components: {Demo},
   setup(){
-    const currentTitle = ref('导航二')
-    return {
-      currentTitle
-    }
+    return{Tabs1Demo}
   }
 }
 </script>
