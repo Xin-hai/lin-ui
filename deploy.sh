@@ -4,7 +4,7 @@
 set -e
 
 # 构建
-npm run build
+yarn build
 
 # cd 到构建输出的目录下
 cd dist
@@ -21,3 +21,5 @@ git push -f git@github.com:Xin-hai/lin-ui.git master:gh-pages
 
 # 回到之前的那一层目录
 cd -
+
+echo https://xin-hai.github.io/lin-ui/index.html

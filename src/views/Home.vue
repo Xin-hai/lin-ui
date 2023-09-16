@@ -59,7 +59,8 @@ $color: #329894;
 }
 .features  {
   margin: 64px auto;
-  //padding: 0 16px;
+  padding: 0 16px;
+
   @media (min-width: 800px) and (max-width: 1199px) {
     width: 800px;
 
@@ -83,7 +84,6 @@ $color: #329894;
     flex-wrap: wrap;
 
     > li {
-      width: 400px;
       margin: 16px 0;
       display: grid;
       justify-content: start;
