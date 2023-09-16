@@ -1,82 +1,35 @@
 <template>
-  <h1>示例1</h1>
+  <h1>Button 示例</h1>
   <div>
-    <Button>你好</Button>
-    <Button theme="button">你好</Button>
-    <Button theme="link">你好</Button>
-    <Button theme="text">你好</Button>
-  </div>
-  <br><br>
-  <h1>示例6</h1>
-  <div>
-    <Button color="info">info</Button>
-    <Button color="success">success</Button>
-    <Button color="warning">warning</Button>
-    <Button color="error">error</Button>
-  </div>
-
-  <h1>示例2</h1>
-  <div>
-    <Button theme="button" size="big">button</Button>
-    <Button theme="button" size="normal">button</Button>
-    <Button theme="button" size="small">button</Button>
-  </div>
-  <div>
-    <Button theme="text" size="big">text</Button>
-    <Button theme="text" size="normal">text</Button>
-    <Button theme="text" size="small">text</Button>
-  </div>
-  <div>
-    <Button theme="link" size="big">link</Button>
-    <Button theme="link" size="normal">link</Button>
-    <Button theme="link" size="small">link</Button>
-  </div>
-  <br><br>
-  <h1>示例3</h1>
-  <div>
-    <Button theme="button" level="main">主要按钮</Button>
-    <Button theme="button" level="normal">默认按钮</Button>
-    <Button theme="button" level="danger">危险按钮</Button>
-  </div>
-  <div>
-    <Button theme="text" level="main">主要按钮</Button>
-    <Button theme="text" level="normal">默认按钮</Button>
-    <Button theme="text" level="danger">危险按钮</Button>
-  </div>
-  <div>
-    <Button theme="link" level="main">主要按钮</Button>
-    <Button theme="link" level="normal">默认按钮</Button>
-    <Button theme="link" level="danger">危险按钮</Button>
-  </div>
-
-  <h1>示例4</h1>
-  <div>
-    <Button theme="button" disabled>禁用按钮</Button>
-    <Button theme="text" disabled>禁用按钮</Button>
-    <Button theme="link" disabled>禁用按钮</Button>
-  </div>
-
-  <h1>示例5</h1>
-  <div>
-    <Button :loading="true">加载中</Button>
-    <Button >加载完毕</Button>
+    <Demo :component="Button1Demo" />
+    <Demo :component="Button2Demo" />
+    <Demo :component="Button3Demo" />
+    <Demo :component="Button4Demo" />
+    <Demo :component="Button5Demo" />
+    <Demo :component="Button6Demo" />
   </div>
 
 
 </template>
 
 <script lang="ts">
-import Button from "../lib/Button.vue";
+import Demo from './Demo.vue';
+import Button1Demo from './button-demos/Button1Demo.vue';
+import Button2Demo from './button-demos/Button2Demo.vue';
+import Button3Demo from './button-demos/Button3Demo.vue';
+import Button4Demo from './button-demos/Button4Demo.vue';
+import Button5Demo from './button-demos/Button5Demo.vue';
+import Button6Demo from './button-demos/Button6Demo.vue';
 export default {
 
   components:{
-    Button
+    Demo,Button1Demo,Button2Demo,Button3Demo,
+    Button4Demo,Button5Demo,Button6Demo
   },
   setup(){
-    const onClick = ()=> {
 
-    }
-    return {onClick}
+    return {Button1Demo,Button2Demo,Button3Demo,
+      Button4Demo,Button5Demo,Button6Demo, Demo}
   }
 }
 </script>

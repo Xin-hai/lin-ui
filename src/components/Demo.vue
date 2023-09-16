@@ -5,7 +5,7 @@
       <component :is="component"></component>
     </div>
     <div class="demo-actions">
-      <Button color="info" @click="codeVisible=!codeVisible">查看代码</Button>
+      <Button color="info" @click="toggle" v-text="buttonText"></Button>
     </div>
     <div class="demo-code" v-if="codeVisible">
       <pre v-html="html"
@@ -30,10 +30,15 @@ export default {
   setup(props){
     const Prism = reactive(window.Prism)
     const codeVisible = ref(false)
+    const buttonText = ref('查看代码')
     const html = computed(()=> {
       return Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'html')
     })
-    return {Prism, html,codeVisible}
+    const toggle = ()=> {
+      codeVisible.value = !codeVisible.value
+      buttonText.value = buttonText.value === '查看代码' ? '隐藏代码' : '查看代码';
+    }
+    return {Prism, html,codeVisible,toggle,buttonText}
   }
 }
 </script>
