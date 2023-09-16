@@ -6,7 +6,7 @@
         <h1>lin UI</h1>
         <h2>一个厉害的UI框架</h2>
         <p class="actions">
-          <a href="#">GitHub</a>
+          <a href="https://github.com/Xin-hai/lin-ui/tree/main">GitHub</a>
           <router-link to="/doc">开始</router-link>
         </p>
       </div>
@@ -59,7 +59,7 @@ $color: #329894;
 }
 .features  {
   margin: 64px auto;
-  padding: 0 16px;
+  //padding: 0 16px;
   @media (min-width: 800px) and (max-width: 1199px) {
     width: 800px;
 

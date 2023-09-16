@@ -3,6 +3,8 @@ import * as fs from 'fs'
 import {baseParse} from '@vue/compiler-core'
 export default {
     plugins: [md()],
+    base:'/lin-ui/',
+    assetsDir: 'assets',
     vueCustomBlockTransforms: {
         demo: (options) => {
             const { code, path } = options
