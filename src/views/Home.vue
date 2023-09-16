@@ -4,9 +4,9 @@
       <TopNav />
       <div class="banner">
         <h1>lin UI</h1>
-        <h2>一个厉害的UI框架</h2>
+        <h2>A powerful UI framework</h2>
         <p class="actions">
-          <a href="https://github.com/Xin-hai/lin-ui/tree/main">GitHub</a>
+          <a href="https://github.com/Xin-hai/lin-ui/tree/main" target="_blank">GitHub</a>
           <router-link to="/doc">开始</router-link>
         </p>
       </div>
@@ -116,13 +116,13 @@ $color: #329894;
     align-items: center;
     padding: 100px 0;
     .actions {
-      padding: 8px 0;
+      padding: 40px 0;
       a{
         color: #fff;
         background: $color-bg-a;
         display: inline-block;
         margin: 0 8px;
-        border-radius: 4px;
+        border-radius: 40px;
         padding: 8px 24px;
         &:hover{
           text-decoration: none;
