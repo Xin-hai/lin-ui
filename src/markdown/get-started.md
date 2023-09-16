@@ -4,7 +4,7 @@
 在代码中写入下面的代码：
 
 ```
-import {Button, Tabs, Switch, Dialog} from "lin-ui"
+import {Button, Tabs, Switch, Dialog} from "lin-ui-1"
 ```
 
 就可以使用我提供的组件。

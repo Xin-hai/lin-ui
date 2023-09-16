@@ -3,13 +3,13 @@
 打开终端运行如下命令：
 
 ```
-npm install lin-ui
+npm install lin-ui-1
 ```
 
 或
 
 ```
-yarn add lin-ui
+yarn add lin-ui-1
 ```
 
 
