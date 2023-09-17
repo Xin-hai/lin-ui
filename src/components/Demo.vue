@@ -7,10 +7,12 @@
     <div class="demo-actions">
       <Button color="info" @click="toggle" v-text="buttonText"></Button>
     </div>
-    <div class="demo-code" v-if="codeVisible">
+    <Transition>
+      <div class="demo-code" v-if="codeVisible">
       <pre v-html="html"
            class="language-html"></pre>
-    </div>
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -72,5 +74,15 @@ $border-color: #d9d9d9;
       //overflow-x: auto;
     }
   }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
